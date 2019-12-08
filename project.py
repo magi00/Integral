@@ -70,11 +70,13 @@ def test():
         funktsioonid=[randint(1,100)*x**randint(2,10),randint(1,100)**x]
         print('Sinu ülesanne: leia funktsiooni tuletis')
         pprint(funktsioonid[i])
+        mbox.showerror("Vihje","Selleks, et automaatkontroll loeks sinu vastust õigeks, pead sisestama enda vastust näiteks sellisel kujul: 35*log(x)/47", parent=application_window)
         vastus=del_tühikud(simpledialog.askstring("Sisesta",'Sisesta vastust: ',parent=application_window))
         tulemus=del_tühikud(str(diff(funktsioonid[i])))
         if vastus!= str(tulemus):
             while vastus!=str(tulemus):
-                vastus = simpledialog.askstring("Sisesta","Vale vastus! Kui soovid näha õiget vastust siis sisesta 'näita'. Kui soovid jätkata siis proovi veel korra! Sisesta vastus uuesti : ",parent=application_window)
+                mbox.showerror("Vale vastus!","Vale vastus! Selleks, et automaatkontroll loeks sinu vastust õigeks, pead sisestama enda vastust näiteks sellisel kujul: 35*log(x)/47 ", parent=application_window)
+                vastus = simpledialog.askstring("Sisesta","Kui soovid näha õiget vastust siis sisesta 'näita'. Kui soovid jätkata siis proovi veel korra! Sisesta vastus uuesti : ",parent=application_window)
                 if vastus=='näita':
                     print("Õige vastus on: ")
                     pprint(diff(funktsioonid[i]))
